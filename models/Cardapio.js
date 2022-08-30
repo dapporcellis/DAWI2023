@@ -10,8 +10,14 @@ const Cardapio = conexao.define(
     titulo: {
       type: DataTypes.STRING,
     },
+    descricao: {
+      type: DataTypes.STRING,
+    },
     valor: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
+    },
+    tipo: {
+      type: DataTypes.STRING,
     },
   },
   {

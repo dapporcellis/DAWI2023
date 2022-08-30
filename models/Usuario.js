@@ -14,6 +14,9 @@ const Usuario = conexao.define(
     senha: {
       type: DataTypes.STRING,
     },
+    admin:{
+      type: DataTypes.BOOLEAN,
+    }
   },
   {
     timestamps: false, //não cria o createdat e updatedat

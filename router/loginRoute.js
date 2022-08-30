@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const loginController = require("../controllers/loginController"); //importa as funções de controller
 const principalController = require("../controllers/principalController"); 
+const upload = require("../config/upload");
+const autenticacao = require("../config/autenticacao");
+const autenticacaoadmin = require("../config/autenticacaoadmin");
+
+
 
 //abrir a tela de login e cadastro
 router.get("/login", loginController.abreTela);
@@ -17,17 +22,25 @@ router.get("/meuspedidos", principalController.pedidos);
 
 router.get("/carrinho", principalController.abrecarrinho);
 
+router.get("/menu", 
+autenticacao,
+principalController.menu,
 
-router.get("/menu", principalController.menu);
+);
 
-router.get("/addmenu", principalController.addmenu);
+router.get("/addmenu", 
+autenticacaoadmin,
+principalController.addmenu,
+
+);
 
 
->>>>>>> 8236563 (first commit)
 
-router.post("/cadastro", loginController.cadastro);
+router.get("/carrinho/add/:id", 
+autenticacao,
+principalController.addcarrinho,
 
-router.post("/login", loginController.logar);
+);
 
 
 module.exports = router;

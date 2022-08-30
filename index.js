@@ -8,9 +8,12 @@ var passport = require("passport");
 const loginRoute = require("./router/loginRoute");
 
 const Usuario = require("./models/Usuario");
+const Cardapio = require("./models/Cardapio");
+
+
 
 //configuração dos arquivos de visão (VIEWS)
-app.set("view engine", "login.ejs");
+app.set("view engine", "ejs");
 
 //configurar para receber dados por metodo post
 app.use(express.urlencoded({ extended: false }));

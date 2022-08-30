@@ -23,7 +23,7 @@ passport.use(
 
 passport.serializeUser(function (user, cb) {
   process.nextTick(function () {
-    cb(null, { id: user.id, email: user.email, nome: user.nome });
+    cb(null, { id: user.id, email: user.email, nome: user.nome, admin: user.admin });
   });
 });
 
