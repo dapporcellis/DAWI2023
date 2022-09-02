@@ -1,15 +1,14 @@
 {
-  "name": "redesocial",
+  "name": "hamburgueria",
   "version": "1.0.0",
-  "description": "Criação de uma Rede Social do IFSul",
+  "description": "Criação de um sistema para hamburgueria",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
   "keywords": [
-    "Rede",
-    "Social",
-    "IFSul"
+    "Sistema",
+    "Hamburgueria"
   ],
   "author": "Mayara Duarte",
   "license": "ISC",

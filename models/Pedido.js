@@ -1,17 +1,17 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, Sequelize } = require("sequelize");
 const conexao = require("../config/conexao");
 
 const Pedido = conexao.define(
     "Pedido", //não precisa dados de autoincremento: id
-    {
+    {   
         datapedido: {
             type: DataTypes.DATEONLY,
         },
-        dataaceito: {
-            type: DataTypes.DATEONLY,
+        quantidade: {
+        type: DataTypes.INTEGER,
         },
-        situacao: {
-            type: DataTypes.STRING,
+        total: {
+        type: DataTypes.FLOAT,
         },
     },
     {

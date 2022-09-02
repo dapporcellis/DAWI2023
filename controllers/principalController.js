@@ -61,6 +61,8 @@ const {Op} = require("sequelize")
     res.redirect('/menu')
   }
 
+  
+
   module.exports = { 
     principal,
     menu, 
@@ -68,5 +70,5 @@ const {Op} = require("sequelize")
     abrecarrinho, 
     addmenu,
     criarmenu,
-    addcarrinho
+    addcarrinho,
   };
