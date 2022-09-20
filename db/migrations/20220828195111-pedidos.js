@@ -12,7 +12,7 @@ module.exports = {
     datapedido:{
       type: Sequelize.DATEONLY,
     },
-    idsolicitante: {
+    UsuarioId: {
       type: Sequelize.INTEGER,
       references: {
         model: "usuarios",

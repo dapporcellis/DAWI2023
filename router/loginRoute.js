@@ -34,13 +34,16 @@ principalController.addmenu,
 
 );
 
-
-
 router.get("/carrinho/add/:id", 
-autenticacao,
 principalController.addcarrinho,
-
 );
+
+router.post("/carrinho", principalController.salvaritens);
+
+
+
+
+
 
 
 module.exports = router;

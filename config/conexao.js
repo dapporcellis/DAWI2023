@@ -6,7 +6,7 @@ const conexao = new sequelize(
   "postgres",
   {
     host: "localhost",
-    port: "5433",
+    port: "5432",
     dialect: "postgres",
   }
 );

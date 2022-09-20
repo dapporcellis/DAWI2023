@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const porta = process.env.PORT || 3009;
+const porta = process.env.PORT || 3333;
 var session = require("express-session");
 var passport = require("passport");
 
@@ -9,7 +9,16 @@ const loginRoute = require("./router/loginRoute");
 
 const Usuario = require("./models/Usuario");
 const Cardapio = require("./models/Cardapio");
+const Itens = require("./models/Itens");
+const Pedido = require("./models/Pedido");
 
+Itens.belongsTo(Cardapio);
+
+Itens.belongsTo(Pedido);
+Pedido.hasMany(Itens);
+
+Pedido.belongsTo(Usuario);
+Usuario.hasMany(Pedido);
 
 
 //configuração dos arquivos de visão (VIEWS)

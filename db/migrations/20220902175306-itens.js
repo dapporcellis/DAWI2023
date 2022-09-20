@@ -9,12 +9,23 @@ module.exports = {
       primaryKey: true,
       allowNull: false,
     },
-    idpedido:{
+    PedidoId:{
       type: Sequelize.INTEGER,
       references: {
         model: "pedido", 
         key: "id",
       }
+    },
+    CardapioId:{
+      type: Sequelize.INTEGER,
+      references: {
+        model: "cardapio", 
+        key: "id",
+      }
+    },
+    quantidade: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
     },
     valordoitem: {
       type: Sequelize.FLOAT,

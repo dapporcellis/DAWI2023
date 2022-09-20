@@ -11,21 +11,27 @@
       </div>
 
       <div class="filters-content">
+        <%Pedidos.forEach(function(pedido){%>
         <div class="row grid">
+          
           <div class="col-sm-6 col-lg-4 all pizza">
             <div class="box">
               <div>
                 
                 <div class="detail-box">
                   <h5>
-                    Pedido 1
+                    <%=pedido.id%>
                   </h5>
                   <p>
-                    Descrição
+                    <%pedido.Itens.forEach(function(item){%>
+  
+                      <%=item.quantidade%> X <%=item.CardapioId.tipo%><br>
+                     
+                    <%})%>
                   </p>
                   <div class="options">
-                    <h6> Total: 
-                      $20
+                    <h6> Total: <%=pedido.valortotal%>
+                      
                     </h6>
                    
                   </div>
@@ -35,6 +41,7 @@
           </div>
           
         </div>
+        <%})%>
       </div>
       <div class="btn-box">
         <a href="">

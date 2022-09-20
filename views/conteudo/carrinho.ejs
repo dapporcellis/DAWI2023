@@ -17,7 +17,9 @@
           </tr>
         </thead>
         <tbody>
-         
+         <div>
+          <form id="demo-form2" method="post" data-parsley-validate
+          class="form-horizontal form-label-left">
             <table>
               <tr>
                 <th>Nome</th>
@@ -27,8 +29,12 @@
               </tr>
               <%Cardapio.forEach(function(cardapio){%>
               <tr>
-                <td><%=cardapio.titulo%></td>
-                <td>R$ <%=cardapio.valor%></td>
+                <td name="idpedido"><%=cardapio.titulo%></td>
+                <input type="hidden" name="idpedido"
+                  min="1" max="100" value="<%=cardapio.id%>">
+                <td name="valordoitem" >R$ <%=cardapio.valor%></td>
+                <input type="hidden"name="valorpedido"
+                  min="1" max="100" value="<%=cardapio.valor%>">
                 <td><input type="number"  value="1" name="quantidade"
                   min="1" max="100"></td>
                 <td><td>
@@ -39,14 +45,14 @@
               </tr>
             <%})%>
             </table>
+         </div>
         </tbody>
       </table>  
       </div>
       <div class="btn-box">
-        <a href="">
-          Inicio
-        </a>
+         <input type="submit" class="btn btn-success" href="/meuspedidos" value="Confirmar">
       </div>
+    </form>
     </div>
   </section>
 

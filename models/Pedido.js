@@ -7,16 +7,16 @@ const Pedido = conexao.define(
         datapedido: {
             type: DataTypes.DATEONLY,
         },
-        quantidade: {
-        type: DataTypes.INTEGER,
+        situacao: {
+            type: DataTypes.STRING,
         },
-        total: {
-        type: DataTypes.FLOAT,
+        valortotal: {
+            type: DataTypes.FLOAT,
         },
     },
     {
         timestamps: false, //sequelize trabalha com timestamps 'não cria data de atualização'
-        tableName: "pedidos",
+        tableName: "pedido",
     }
 );
 
