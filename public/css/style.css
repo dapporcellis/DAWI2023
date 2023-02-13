@@ -620,6 +620,17 @@ a:focus {
   margin-top: 45px;
 }
 
+.food_section .btn-box-situacao {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: flex-start;
+  margin-top: 45px;
+
+}
+
 .food_section .btn-box a {
   display: inline-block;
   padding: 10px 55px;
@@ -1025,4 +1036,31 @@ a:focus {
 .footer_section .footer-info p a {
   color: inherit;
 }
-/*# sourceMappingURL=style.css.map */
+
+.button{
+  font-size: 44px;
+  color: #FFF;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e9f356;
+  transition: transform 300ms,
+  background-color 300ms;
+  animation: pulse 500ms;
+}
+
+.button:active{
+  transform: scale(0.1);
+  animation: none;
+}
+
+@keyframes pulse {
+  from{
+    box-shadow: #ffbe33 0 0 0;
+  }  
+  to {
+    box-shadow: #ffbe33 0 0 24px;
+  }
+}
+

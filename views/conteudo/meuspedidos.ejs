@@ -20,19 +20,22 @@
                 
                 <div class="detail-box">
                   <h5>
-                    <%=pedido.id%>
+                    <%=pedido.datapedido%>
                   </h5>
                   <p>
                     <%pedido.Itens.forEach(function(item){%>
   
-                      <%=item.quantidade%> X <%=item.CardapioId.tipo%><br>
+                      <%=item.quantidade%> X <%=item.titulo%><br>
                      
                     <%})%>
                   </p>
                   <div class="options">
-                    <h6> Total: <%=pedido.valortotal%>
-                      
+                    <h6> Total R$: <%=pedido.valortotal%> <br>
                     </h6>
+                    <h1>
+                      <%=pedido.situacao%>
+                    </h1>
+                    
                    
                   </div>
                 </div>

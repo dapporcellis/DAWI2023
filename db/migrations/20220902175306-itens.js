@@ -16,7 +16,7 @@ module.exports = {
         key: "id",
       }
     },
-    CardapioId:{
+    CardapioTitulo:{
       type: Sequelize.INTEGER,
       references: {
         model: "cardapio", 

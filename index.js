@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const porta = process.env.PORT || 3333;
+const porta = process.env.PORT || 3003;
 var session = require("express-session");
 var passport = require("passport");
 

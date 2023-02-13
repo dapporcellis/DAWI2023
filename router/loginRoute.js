@@ -31,7 +31,11 @@ principalController.menu,
 router.get("/addmenu", 
 autenticacaoadmin,
 principalController.addmenu,
+);
 
+router.get("/addpromocao", 
+autenticacaoadmin,
+principalController.addpromocao,
 );
 
 router.get("/carrinho/add/:id", 

@@ -30,6 +30,10 @@ const Pedido = require("../models/Pedido");
     res.render("admin/addmenu.ejs");
   }
 
+  async function addpromocao(req, res) {
+    res.render("admin/addpromocao.ejs");
+  }
+
   async function criarmenu(req, res){
     const cardapio = await Cardapio.create({
       foto: req.file.filename,
@@ -108,6 +112,7 @@ const Pedido = require("../models/Pedido");
     pedidos, 
     abrecarrinho, 
     addmenu,
+    addpromocao,
     criarmenu,
     addcarrinho,
     salvaritens,
