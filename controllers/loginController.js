@@ -14,7 +14,7 @@ async function cadastro(req, res) {
     email: email,
     senha: hash,
   });
-  res.redirect("/");
+  res.redirect("/principal");
 }
 
 
@@ -27,9 +27,13 @@ async function cadastrar(req, res) {
     res.render("login/cadastro.ejs");
 }
 
+async function principal(req, res) {
+  res.render("conteudo/principal.ejs");
+}
+
 const logar = passport.authenticate("local", {
   failureRedirect: "/", 
-  successRedirect: "/pronto",
+  successRedirect: "/principal",
 });
 
-module.exports = { abreTela, cadastro, cadastrar, logar};
+module.exports = { abreTela, cadastro, cadastrar, logar, principal};
