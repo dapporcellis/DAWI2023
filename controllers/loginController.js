@@ -1,6 +1,7 @@
 const Usuario = require("../models/Usuario");
 const bcrypt = require("bcrypt");
 const passport = require("../config/passport");
+const transporter = require("../config/email");
 
 
 async function cadastro(req, res) {
@@ -36,10 +37,50 @@ const logar = passport.authenticate("local", {
   failureRedirect: "/", 
   successRedirect: "/principal",
 =======
+async function forgot(req,res) {
+  res.render("login/forgot.ejs");
+}
+
+async function telatoken(req,res) {
+  res.render("login/token.ejs");
+}
+
+
+async function recuperar(req,res) {
+  let token = generatePassword();
+  let usuario = await Usuario.findOne({
+    where: {
+      email: req.body.email
+    }
+  })
+  console.log(usuario)
+  const email = {
+    from: 'recuperacaodesenhaif@hotmail.com',
+    to: usuario.email,
+    subject: 'Recuperação de senha!',
+    text: 'Olá '+usuario.nome+' você tentou recuperar a senha pelo site! acesse o site http://localhost:3002/recuperacao e insira o token: '+token+''
+  };
+  
+  console.log(email)
+
+  transporter.sendMail(email, (err, result)=>{
+    if(err) return console.log("Oi")
+    
+  })
+  res.redirect("/token");
+}
+
+function generatePassword(){
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    var pass = ''
+    for(var i=0; i< 10; i++)
+      pass += chars.charAt(Math.random() * 61)
+    return pass
+}
 
 const logar = passport.authenticate("local", {
   failureRedirect: "/", 
   successRedirect: "/",
 });
 
-module.exports = { abreTela, cadastro, cadastrar, logar, principal};
+module.exports = { abreTela, cadastro, cadastrar, logar};

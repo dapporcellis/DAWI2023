@@ -16,6 +16,16 @@ router.get("/cadastro", loginController.cadastrar);
 <<<<<<< HEAD
 router.get("/principal", loginController.principal);
 =======
+router.post("/cadastro", loginController.cadastro);
+
+router.post("/login", loginController.logar);
+
+router.get("/forgot", loginController.forgot);
+
+router.post("/forgot", loginController.recuperar);
+
+router.get("/token", loginController.telatoken);
+
 router.get("/", principalController.principal);
 
 router.get("/meuspedidos", principalController.pedidos);

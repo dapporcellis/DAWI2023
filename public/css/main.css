@@ -173,6 +173,8 @@ iframe {
   background: -o-linear-gradient(-135deg, #222831, #4c4e57);
   background: -moz-linear-gradient(-135deg, #222831, #4c4e57);
   background: linear-gradient(-135deg, #222831, #4c4e57);
+  background: linear-gradient(90.15deg, #19181b 18.00%, #707a7e 82.00%);
+
 }
 
 .wrap-login100 {
@@ -218,6 +220,18 @@ iframe {
   width: 100%;
   display: block;
   padding-bottom: 54px;
+}
+
+.login10-form-title {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  color: #8d8a8a;
+  line-height: 1.2;
+  text-align: center;
+
+  width: 100%;
+  display: block;
+  padding-bottom: 0;
 }
 
 
@@ -278,6 +292,18 @@ iframe {
   }
 }
 
+#pass {
+  width: 150px;
+  padding-right: 20px;
+}
+
+.olho {
+  cursor: pointer;
+  left: 160px;
+  position: absolute;
+  width: 20px;
+}
+
 .symbol-input100 {
   font-size: 15px;
 
@@ -302,6 +328,7 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
+
 
 .input100:focus + .focus-input100 + .symbol-input100 {
   color: #57b846;
