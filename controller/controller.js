@@ -61,7 +61,17 @@ function oinomesobrenome(req,res){
     res.send('Oi '+req.params.nome+" "+req.params.sobrenome)
 }
 
+function formulario(req,res){
+    res.render('formulario')
+}
+
+function olapost(req,res){
+    res.render('resposta')
+}
+
 module.exports = {
+    olapost,
+    formulario,
     oinomesobrenome,
     soma,
     raiz,

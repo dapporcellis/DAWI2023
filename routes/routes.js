@@ -2,8 +2,13 @@ const express = require('express');
 const routes = express.Router();
 const controller = require('../controller/controller')
 
+routes.get('/formulario', controller.formulario)
+routes.post('/formulario', controller.olapost)
+
 routes.get('/', controller.olamundo)
 routes.get('/:nome', controller.olanome)
+
+
 /*
 routes.get('/', controller.ola)
 routes.get('/algoritmoi', controller.disciplina)
