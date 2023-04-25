@@ -5,6 +5,9 @@ const controller = require('../controller/controller')
 routes.get('/formulario', controller.formulario)
 routes.post('/formulario', controller.olapost)
 
+routes.get('/soma', controller.abresoma)
+routes.post('/soma', controller.soma1)
+
 routes.get('/', controller.olamundo)
 routes.get('/:nome', controller.olanome)
 

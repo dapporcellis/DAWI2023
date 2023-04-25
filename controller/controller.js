@@ -81,7 +81,20 @@ function olapost(req,res){
     res.render('resposta',{nome:req.body.nome,turno:turno})
 }
 
+function abresoma(req,res){
+    res.render('soma/soma.ejs')
+}
+
+function soma1(req,res){
+    let valor1 = parseInt(req.body.valor1)
+    let valor2 = parseInt(req.body.valor2)
+    let soma = valor1+valor2
+    res.render('soma/resposta.ejs',{valor1:valor1,valor2:valor2,soma:soma})
+}
+
 module.exports = {
+    soma1,
+    abresoma,
     olapost,
     formulario,
     oinomesobrenome,
