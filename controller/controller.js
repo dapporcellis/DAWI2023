@@ -25,7 +25,6 @@ function bbb(req,res){
 function saudacao(req, res) {
     let data = new Date();
     let horas = data.getHours();
-    console.log(horas)
 
     if(horas>=6 && horas<12){
         res.send('Bom dia!')
@@ -66,7 +65,20 @@ function formulario(req,res){
 }
 
 function olapost(req,res){
-    res.render('resposta')
+    let data = new Date();
+    let horas = data.getHours();
+    let turno;
+
+    if(horas>=6 && horas<12){
+        turno = 'Bom dia'
+    }else if(horas>=12 && horas<18){
+        turno = 'Boa tarde'
+    }else{
+        turno = 'Boa noite'
+    }
+
+
+    res.render('resposta',{nome:req.body.nome,turno:turno})
 }
 
 module.exports = {
