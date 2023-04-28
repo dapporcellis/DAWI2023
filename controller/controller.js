@@ -92,7 +92,59 @@ function soma1(req,res){
     res.render('soma/resposta.ejs',{valor1:valor1,valor2:valor2,soma:soma})
 }
 
+function abrequadrado(req,res){
+    res.render('quadrado/quadrado.ejs')
+}
+
+function quadrado1(req,res){
+    let valor = parseInt(req.body.valor)
+    let resposta = valor*valor
+    res.render('quadrado/resposta.ejs', {valor:valor,resposta:resposta})
+}
+
+function abreraiz(req,res){
+    res.render('raiz/raiz.ejs')
+}
+
+function raiz1(req,res){
+    let valor = parseInt(req.body.valor)
+    let resposta = Math.sqrt(valor)
+    res.render('raiz/resposta.ejs',{valor:valor,resposta:resposta})
+}
+
+function abreimpar(req, res){
+    res.render('impar/impar.ejs')
+}
+function impar(req,res){
+    let valor = parseInt(req.body.valor)
+    let resposta;
+    if(valor%2 == 0){  
+        resposta = 'Par'
+    }else{
+        resposta = 'Impar'
+    }
+    res.render('impar/resposta.ejs', {valor:valor,resposta:resposta})
+}
+
+function abremaior(req,res){
+    res.render('maior/maior.ejs')
+}
+
+function maior(req,res){
+    let valor1 = parseInt(req.body.valor1)
+    let valor2 = parseInt(req.body.valor2)
+    res.render('maior/resposta.ejs',{valor1:valor1,valor2:valor2})
+}
+
 module.exports = {
+    maior,
+    abremaior,
+    abreimpar,
+    impar,
+    raiz1,
+    abreraiz,
+    quadrado1,
+    abrequadrado,
     soma1,
     abresoma,
     olapost,

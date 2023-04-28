@@ -8,6 +8,18 @@ routes.post('/formulario', controller.olapost)
 routes.get('/soma', controller.abresoma)
 routes.post('/soma', controller.soma1)
 
+routes.get('/quadrado', controller.abrequadrado)
+routes.post('/quadrado', controller.quadrado1)
+
+routes.get('/raiz', controller.abreraiz)
+routes.post('/raiz', controller.raiz1)
+
+routes.get('/impar', controller.abreimpar)
+routes.post('/impar', controller.impar)
+
+routes.get('/maior', controller.abremaior)
+routes.post('/maior', controller.maior)
+
 routes.get('/', controller.olamundo)
 routes.get('/:nome', controller.olanome)
 
