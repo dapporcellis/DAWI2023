@@ -2,6 +2,9 @@ const express = require('express');
 const routes = express.Router();
 const controller = require('../controller/controller')
 
+routes.get('/usuario/add', controller.abreadduser)
+routes.post('/usuario/add', controller.adduser)
+
 routes.get('/formulario', controller.formulario)
 routes.post('/formulario', controller.olapost)
 

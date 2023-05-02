@@ -136,7 +136,32 @@ function maior(req,res){
     res.render('maior/resposta.ejs',{valor1:valor1,valor2:valor2})
 }
 
+function abreadduser(req, res){
+    res.render('usuario/add')
+}
+
+const Usuario = require('../model/Usuario')
+
+function adduser(req,res){
+    let usuario = new Usuario({
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: req.body.senha,
+        foto: req.body.foto
+    })
+
+    usuario.save().then(function(usuario, err){
+        if(err){
+            res.send(err);
+        }else{
+            res.redirect("/usuario/add")
+        }
+    })
+}
+
 module.exports = {
+    adduser,
+    abreadduser,
     maior,
     abremaior,
     abreimpar,
