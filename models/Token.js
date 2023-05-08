@@ -4,16 +4,16 @@ const conexao = require("../config/sequelize");
 const Token = conexao.define(
   "Token",
   {
-    Token: {
+    token: {
       type: DataTypes.STRING,
     },
-    Dataexpiracao: {
+    dataexpiracao: {
         type: DataTypes.DATE,
     },
   },
   {
     timestamps: false, 
-    tableName: "usuarios", 
+    tableName: "token", 
   }
 );
 

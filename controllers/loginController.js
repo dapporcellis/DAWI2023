@@ -1,4 +1,5 @@
 const Usuario = require("../models/Usuario");
+const Token = require("../models/Token");
 const bcrypt = require("bcrypt");
 const passport = require("../config/passport");
 const transporter = require("../config/email");
@@ -54,6 +55,13 @@ async function recuperar(req,res) {
     }
   })
   console.log(usuario)
+
+  let savetoken = await Token.create({
+    UsuarioId: usuario.UsuarioId,
+    token: token,
+    dataexpiracao: new Date()
+  });
+
   const email = {
     from: 'recuperacaodesenhaif@hotmail.com',
     to: usuario.email,
