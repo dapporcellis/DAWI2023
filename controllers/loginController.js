@@ -27,6 +27,7 @@ async function cadastrar(req, res) {
     res.render("login/cadastro.ejs");
 }
 
+<<<<<<< HEAD
 async function principal(req, res) {
   res.render("conteudo/principal.ejs");
 }
@@ -34,6 +35,12 @@ async function principal(req, res) {
 const logar = passport.authenticate("local", {
   failureRedirect: "/", 
   successRedirect: "/principal",
+=======
+
+const logar = passport.authenticate("local", {
+  failureRedirect: "/", 
+  successRedirect: "/",
+>>>>>>> 8236563 (first commit)
 });
 
 module.exports = { abreTela, cadastro, cadastrar, logar, principal};
