@@ -13,9 +13,6 @@ router.get("/login", loginController.abreTela);
 
 router.get("/cadastro", loginController.cadastrar);
 
-<<<<<<< HEAD
-router.get("/principal", loginController.principal);
-=======
 router.post("/cadastro", loginController.cadastro);
 
 router.post("/login", loginController.logar);
@@ -42,6 +39,8 @@ router.get("/addmenu",
 autenticacaoadmin,
 principalController.addmenu,
 );
+
+router.post("/addmenu", autenticacaoadmin, upload.single('foto'), principalController.criarmenu)
 
 router.get("/addpromocao", 
 autenticacaoadmin,

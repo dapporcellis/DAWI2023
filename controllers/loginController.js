@@ -19,45 +19,34 @@ async function cadastro(req, res) {
   res.redirect("/login");
 }
 
-
-
 async function abreTela(req, res) {
   res.render("login/login.ejs");
 }
 
 async function cadastrar(req, res) {
-    res.render("login/cadastro.ejs");
+  res.render("login/cadastro.ejs");
 }
 
-<<<<<<< HEAD
-async function principal(req, res) {
-  res.render("conteudo/principal.ejs");
-}
-
-const logar = passport.authenticate("local", {
-  failureRedirect: "/", 
-  successRedirect: "/principal",
-=======
-async function forgot(req,res) {
+async function forgot(req, res) {
   res.render("login/forgot.ejs");
 }
 
-async function telatoken(req,res) {
+async function telatoken(req, res) {
   res.render("login/token.ejs");
 }
 
 
-async function recuperar(req,res) {
-  let token = generatePassword();
-  let usuario = await Usuario.findOne({
+async function recuperar(req, res) {
+  var token = generatePassword();
+  const usuario = await Usuario.findAll({
     where: {
       email: req.body.email
     }
   })
   console.log(usuario)
 
-  let savetoken = await Token.create({
-    UsuarioId: usuario.UsuarioId,
+  const savetoken = await Token.create({
+    UsuarioId: usuario.id,
     token: token,
     dataexpiracao: new Date()
   });
@@ -66,30 +55,40 @@ async function recuperar(req,res) {
     from: 'recuperacaodesenhaif@hotmail.com',
     to: usuario.email,
     subject: 'Recuperação de senha!',
-    text: 'Olá '+usuario.nome+' você tentou recuperar a senha pelo site! acesse o site http://localhost:3002/recuperacao e insira o token: '+token+''
+    text: 'Olá ' + usuario.email + " - " + usuario.nome + ' você tentou recuperar a senha pelo site! acesse o site http://localhost:3002/recuperacao e insira o token: ' + token + ''
   };
-  
+
   console.log(email)
 
-  transporter.sendMail(email, (err, result)=>{
-    if(err) return console.log("Oi")
-    
+  transporter.sendMail(email, (err, result) => {
+    if (err) return console.log("Oi")
+
   })
   res.redirect("/token");
 }
 
-function generatePassword(){
-    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    var pass = ''
-    for(var i=0; i< 10; i++)
-      pass += chars.charAt(Math.random() * 61)
-    return pass
-    
+function generatePassword() {
+  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  var pass = ''
+  for (var i = 0; i < 10; i++)
+    pass += chars.charAt(Math.random() * 61)
+  return pass
+
 }
 
 const logar = passport.authenticate("local", {
-  failureRedirect: "/", 
-  successRedirect: "/",
+  failureRedirect: "/login",
+  successRedirect: "/addmenu",
 });
 
-module.exports = { abreTela, cadastro, cadastrar, logar};
+
+
+module.exports = {
+  abreTela,
+  cadastro,
+  cadastrar,
+  logar,
+  forgot,
+  recuperar,
+  telatoken
+};

@@ -35,6 +35,7 @@ const Pedido = require("../models/Pedido");
   }
 
   async function criarmenu(req, res){
+    console.log("Criarmenu")
     const cardapio = await Cardapio.create({
       foto: req.file.filename,
       titulo: req.body.titulo,
