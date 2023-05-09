@@ -136,13 +136,13 @@ function maior(req,res){
     res.render('maior/resposta.ejs',{valor1:valor1,valor2:valor2})
 }
 
-function abreadduser(req, res){
+function abreadd(req, res){
     res.render('usuario/add')
 }
 
 const Usuario = require('../model/Usuario')
 
-function adduser(req,res){
+function add(req,res){
     let usuario = new Usuario({
         nome: req.body.nome,
         email: req.body.email,
@@ -159,9 +159,20 @@ function adduser(req,res){
     })
 }
 
+function listar(req,res){
+    Usuario.find({}).then(function(usuarios,err){
+        if(err){
+            res.send(err)
+        }else{
+            res.render('usuario/lst',{Usuarios:usuarios})
+        }
+    })
+}
+
 module.exports = {
-    adduser,
-    abreadduser,
+    listar,
+    add,
+    abreadd,
     maior,
     abremaior,
     abreimpar,
