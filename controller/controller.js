@@ -169,7 +169,18 @@ function listar(req,res){
     })
 }
 
+function filtrar(req,res){
+    Usuario.find({nome: new RegExp(req.body.pesquisar.split(' ').join('.*'),'ig')}).then(function(usuarios,err){
+        if(err){
+            res.send(err)
+        }else{
+            res.render('usuario/lst',{Usuarios:usuarios})
+        }
+    })
+}
+
 module.exports = {
+    filtrar,
     listar,
     add,
     abreadd,

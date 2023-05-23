@@ -15,10 +15,22 @@
         td,th{
             padding: 5px;
         }
+        input{
+            padding: 10px;
+        }
+        input[type="text"]{
+            width: 80%;
+            margin-bottom: 10px;
+        }
     </style>
     <title>Listar Usuários</title>
 </head>
 <body>
+    <form method="post">
+        <input type="text" name="pesquisar" id="pesquisar" 
+            placeholder="Digite aqui o que você deseja pesquisar!">
+        <input type="submit" value="Pesquisar">
+    </form>
     <table>
         <tr>
             <th>_id</th>
