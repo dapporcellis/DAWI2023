@@ -179,7 +179,18 @@ function filtrar(req,res){
     })
 }
 
+function del(req,res){
+    Usuario.findByIdAndDelete(req.params.id).then(function(usuario,err){
+        if(err){
+            res.send(err)
+        }else{
+            res.redirect('/usuario/lst')
+        }
+    })
+}
+
 module.exports = {
+    del,
     filtrar,
     listar,
     add,

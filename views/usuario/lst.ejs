@@ -49,8 +49,12 @@
                 <td><%=usuario.email %></td>
                 <td><%=usuario.foto %></td>
                 <td><%=usuario.criacao %></td>
-                <td>Edita</td>
-                <td>Deleta</td>
+                <td>
+                    <a href="/usuario/edt/<%=usuario._id %>">Editar</a>
+                </td>
+                <td>
+                    <a href="/usuario/del/<%=usuario._id %>">Deletar</a>
+                </td>
             </tr>
         <% }) %>
     </table>
