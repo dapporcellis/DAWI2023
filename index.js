@@ -6,7 +6,9 @@ app.use(express.urlencoded({extended:true}))
 app.set('view engine', 'ejs');
 
 const routes = require('./routes/routes')
+const filmeroutes = require('./routes/FilmeRoutes')
 app.use(routes)
+app.use(filmeroutes)
 
 app.listen(port, function(){
     console.log('Servidor funcionando!')
