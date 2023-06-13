@@ -189,7 +189,39 @@ function del(req,res){
     })
 }
 
+function abreedt(req,res){
+    Usuario.findById(req.params.id).then(function(usuario,err){
+        if(err){
+            res.send(err)
+        }else{
+            res.render('usuario/edt', {Usuario:usuario})
+        }
+    })    
+}
+
+function edt(req,res){
+    Usuario.findById(req.params.id).then(function(usuario,err){
+        if(err){
+            res.send(err)
+        }else{
+            usuario.nome = req.body.nome;
+            usuario.email = req.body.email;
+            usuario.senha = req.body.senha;
+            usuario.foto = req.body.foto;
+            usuario.save().then(function(usuario,err){
+                if(err){
+                    res.send(err);
+                }else{
+                    res.redirect('/usuario/lst')
+                }
+            })
+        }
+    })
+}
+
 module.exports = {
+    edt,
+    abreedt,
     del,
     filtrar,
     listar,

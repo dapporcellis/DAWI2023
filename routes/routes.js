@@ -8,6 +8,9 @@ routes.post('/usuario/add', controller.add)
 routes.get('/usuario/lst', controller.listar)
 routes.post('/usuario/lst', controller.filtrar)
 
+routes.get('/usuario/edt/:id', controller.abreedt)
+routes.post('/usuario/edt/:id', controller.edt)
+
 routes.get('/usuario/del/:id', controller.del)
 
 routes.get('/formulario', controller.formulario)
