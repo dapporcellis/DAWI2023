@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table{
+            max-width: 100%;
+        }
+        table, td, th{
+            border: solid 1px red;
+            border-collapse:collapse;
+        }
+        td,th{
+            padding: 5px;
+        }
+        input{
+            padding: 10px;
+        }
+        input[type="text"]{
+            width: 80%;
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Listar Filme</title>
+</head>
+<body>
+    <form method="post">
+        <input type="text" name="pesquisar" id="pesquisar" 
+            placeholder="Digite aqui o que você deseja pesquisar!">
+        <input type="submit" value="Pesquisar">
+    </form>
+    <table>
+        <tr>
+            <th>_id</th>
+            <th>Título</th>
+            <th>Ano</th>
+            <th>Duração</th>
+            <th>Edita</th>
+            <th>Deleta</th>
+        </tr>
+
+        <%Filmes.forEach(function(filme){  %>
+            <tr>
+                <td><%=filme._id %></td>
+                <td><%=filme.titulo %></td>
+                <td><%=filme.ano %></td>
+                <td><%=filme.tempo %></td>
+                <td>
+                    <a href="/filme/edt/<%=filme._id %>">Editar</a>
+                </td>
+                <td>
+                    <a href="/filme/del/<%=filme._id %>">Deletar</a>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
