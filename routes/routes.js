@@ -11,7 +11,7 @@ routes.get('/usuario/lst', controller.listar)
 routes.post('/usuario/lst', controller.filtrar)
 
 routes.get('/usuario/edt/:id', controller.abreedt)
-routes.post('/usuario/edt/:id', controller.edt)
+routes.post('/usuario/edt/:id', upload.single('foto'), controller.edt)
 
 routes.get('/usuario/del/:id', controller.del)
 

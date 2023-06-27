@@ -1,0 +1,10 @@
+<%-include('cabecalho') %>
+<h1>Edita Usuário</h1>
+<form method="post" enctype="multipart/form-data">
+    Id: <input type="text" readonly name="id" id="id" value="<%=Post._id%>"><br />
+    Título: <input type="text" name="titulo" id="titulo" value="<%=Post.titulo%>"><br />
+    Texto: <textarea name="texto" id="texto" cols="30" rows="10"><%=Post.texto%></textarea><br />
+    Foto: <input type="file" name="foto" id="foto"><br />
+    <input type="submit" value="Editar">
+</form>
+<%-include('rodape') %>

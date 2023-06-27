@@ -1,0 +1,33 @@
+<%-include('cabecalho') %>
+<form method="post">
+    <input type="text" name="pesquisar" id="pesquisar" placeholder="Digite aqui o que você deseja pesquisar!">
+    <input type="submit" value="Pesquisar">
+</form>
+<table>
+    <tr>
+        <th>_id</th>
+        <th>Título</th>
+        <th>Texto</th>
+        <th>Foto</th>
+        <th>Edita</th>
+        <th>Deleta</th>
+    </tr>
+
+    <%Posts.forEach(function(post){  %>
+    <tr>
+        <td><%=post._id %></td>
+        <td><%=post.titulo %></td>
+        <td><%=post.texto %></td>
+        <td>
+            <img style="width: 200px;" src="/fotos/<%=post.foto %>" alt="Foto do Post">
+        </td>
+        <td>
+            <a href="/post/edt/<%=post._id %>">Editar</a>
+        </td>
+        <td>
+            <a href="/post/del/<%=post._id %>">Deletar</a>
+        </td>
+    </tr>
+    <% }) %>
+</table>
+<%-include('rodape') %>

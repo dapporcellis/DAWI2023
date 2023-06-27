@@ -10,8 +10,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const routes = require('./routes/routes')
 const filmeroutes = require('./routes/FilmeRoutes')
+const postRoutes = require('./routes/PostRoutes')
 app.use(routes)
 app.use(filmeroutes)
+app.use(postRoutes)
 
 app.listen(port, function(){
     console.log('Servidor funcionando!')
