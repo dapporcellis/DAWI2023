@@ -1,9 +1,11 @@
 const express = require('express');
 const routes = express.Router();
 const controller = require('../controller/controller')
+const multer = require('multer')
+const upload = multer({ dest: 'public/fotos' })
 
 routes.get('/usuario/add', controller.abreadd)
-routes.post('/usuario/add', controller.add)
+routes.post('/usuario/add', upload.single('foto'), controller.add)
 
 routes.get('/usuario/lst', controller.listar)
 routes.post('/usuario/lst', controller.filtrar)

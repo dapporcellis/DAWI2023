@@ -147,7 +147,7 @@ function add(req,res){
         nome: req.body.nome,
         email: req.body.email,
         senha: req.body.senha,
-        foto: req.body.foto
+        foto: req.file.filename
     })
 
     usuario.save().then(function(usuario, err){
