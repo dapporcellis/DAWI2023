@@ -8,10 +8,10 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-const routes = require('./routes/routes')
+const usuarioroutes = require('./routes/UsuarioRoutes')
 const filmeroutes = require('./routes/FilmeRoutes')
 const postRoutes = require('./routes/PostRoutes')
-app.use(routes)
+app.use(usuarioroutes)
 app.use(filmeroutes)
 app.use(postRoutes)
 
