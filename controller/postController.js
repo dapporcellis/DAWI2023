@@ -1,7 +1,10 @@
 const Post = require('../model/Post')
+const Usuario = require('../model/Usuario')
 
 function abreadd(req, res) {
-    res.render('post/add')
+    Usuario.find({}).then(function(usuarios){
+        res.render('post/add', {Usuarios: usuarios})
+    })    
 }
 
 function add(req, res) {
@@ -10,6 +13,7 @@ function add(req, res) {
         titulo: req.body.titulo,
         texto: req.body.texto,
         foto: req.file.filename,
+        usuario: req.body.usuario
     })
 
     post.save().then(function (post, err) {
@@ -22,7 +26,7 @@ function add(req, res) {
 }
 
 function listar(req, res) {
-    Post.find({}).then(function (posts, err) {
+    Post.find({}).populate('usuario').then(function (posts, err) {
         if (err) {
             res.send(err)
         } else {
